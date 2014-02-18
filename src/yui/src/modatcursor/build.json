@@ -1,0 +1,10 @@
+{
+    "name": "moodle-local_tdmmodatcursor-modatcursor",
+    "builds": {
+        "moodle-local_tdmmodatcursor-modatcursor": {
+            "jsfiles": [
+                "modatcursor.js"
+            ]
+        }
+    }
+}

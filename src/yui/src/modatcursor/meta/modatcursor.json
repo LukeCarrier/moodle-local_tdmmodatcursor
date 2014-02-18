@@ -1,0 +1,8 @@
+{
+    "moodle-local_tdmmodatcursor-modatcursor": {
+        "requires": [
+            "base",
+            "node-event-delegate"
+        ]
+    }
+}
