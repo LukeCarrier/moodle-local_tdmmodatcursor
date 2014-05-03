@@ -20,8 +20,8 @@ if (substr($PAGE->url->out_omit_querystring(), strlen($CFG->wwwroot)) === '/cour
         'addString' => get_string('addtype', 'local_tdmmodatcursor'),
 
         'modules' => array(
-            'file' => get_string('modulename', 'resource'),
-            'url'  => get_string('modulename', 'url'),
+            'resource' => get_string('modulename', 'resource'),
+            'url'      => get_string('modulename', 'url'),
         ),
 
         'course' => $PAGE->url->get_param('id'),
