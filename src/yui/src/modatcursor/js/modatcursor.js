@@ -9,6 +9,8 @@
 
 var NS = Y.namespace('Moodle.local_tdmmodatcursor.modatcursor');
 
+/*global M */
+
 /**
  * Format a string.
  *
@@ -118,22 +120,22 @@ NS.showButtons = function(activityElement) {
 
     this.hideButtons();
 
-    console.log(activityElement.getDOMNode());
-
     var buttonContainer = activityElement.one('.menubar'),
         addAbove        = activityElement.get('id').substr(7),
         section         = activityElement.ancestor('.section').ancestor('.section').get('id').substr(8);
 
     Y.Object.each(this.params.modules, function(name, type) {
-        var url = M.cfg.wwwroot + this.formatString(this.params.baseUrl, {
+        var button, url, listItem;
+
+        url = M.cfg.wwwroot + this.formatString(this.params.baseUrl, {
             addabove: addAbove,
             course:   this.params.course,
             section:  section,
             type:     type
         });
 
-        var button   = Y.Node.create('<a href="' + url + '">' + this.formatString(this.params.addString, {type: name}) + '</a>'),
-            listItem = Y.Node.create('<li></li>');
+        button   = Y.Node.create('<a href="' + url + '">' + this.formatString(this.params.addString, {type: name}) + '</a>');
+        listItem = Y.Node.create('<li></li>');
 
         button.set('data-section', section);
         button.set('data-below',   'blah');
