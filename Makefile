@@ -5,16 +5,16 @@
 # @copyright (c) 2014 The Development Manager Ltd
 #
 
-.PHONY: all clean
+.PHONY: all clean yui yui-clean
 
 TOP := $(dir $(CURDIR)/$(word $(words $(MAKEFILE_LIST)), $(MAKEFILE_LIST)))
 
 all: build/local_tdmmodatcursor.zip
 
-clean:
+clean: yui-clean
 	rm -rf $(TOP)build
 
-build/local_tdmmodatcursor.zip:
+build/local_tdmmodatcursor.zip: yui
 	mkdir -p $(TOP)build
 	cp -rv $(TOP)src $(TOP)build/tdmmodatcursor
 	cp $(TOP)README.md $(TOP)build/tdmmodatcursor/README.txt
@@ -22,3 +22,9 @@ build/local_tdmmodatcursor.zip:
 		&& zip -r local_tdmmodatcursor.zip tdmmodatcursor
 	rm -rfv $(TOP)build/tdmmodatcursor
 
+yui:
+	cd $(TOP)src/yui/src \
+		&& shifter --walk
+
+yui-clean:
+	rm -rfv $(TOP)src/yui/build
