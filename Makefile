@@ -17,6 +17,7 @@ clean:
 build/local_tdmmodatcursor.zip:
 	mkdir -p $(TOP)build
 	cp -rv $(TOP)src $(TOP)build/tdmmodatcursor
+	cp $(TOP)README.md $(TOP)build/tdmmodatcursor/README.txt
 	cd $(TOP)build \
 		&& zip -r local_tdmmodatcursor.zip tdmmodatcursor
 	rm -rfv $(TOP)build/tdmmodatcursor
