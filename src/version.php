@@ -27,8 +27,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = 'local_tdmmodatcursor';
-$plugin->release   = '0.1.0';
+$plugin->maturity  = MATURITY_BETA;
+$plugin->release   = '0.3.0';
 
 // Version format:  YYYYMMDDXX
-$plugin->version  = 2014021400;
+$plugin->version  = 2014052800;
 $plugin->requires = 2013111800;
