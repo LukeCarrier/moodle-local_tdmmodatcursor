@@ -22,7 +22,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-var NS = Y.namespace('Moodle.local_tdmmodatcursor.modatcursor');
+var NS = Y.namespace('M.local_tdmmodatcursor.modatcursor');
 
 /*global M */
 
