@@ -91,7 +91,6 @@ NS.init = function(params) {
         sectionSelector:  '.section',
         topElement:       '.course-content',
         baseUrl:          '/local/tdmmodatcursor/index.php?add={type}&course={course}&section={section}&addabove={addabove}',
-        addString:        'Add {type}',
         buttonClass:      'modatcursor-button',
         listItemClass:    'modatcursor-listitem',
         modules:          {}
@@ -149,7 +148,8 @@ NS.showButtons = function(activityElement) {
             type:     type
         });
 
-        button   = Y.Node.create('<a href="' + url + '">' + this.formatString(this.params.addString, {type: name}) + '</a>');
+        button   = Y.Node.create('<a href="' + url + '">' + M.util.get_string('addtype', 'local_tdmmodatcursor', name)
+                                 + '</a>');
         listItem = Y.Node.create('<li></li>');
 
         button.set('data-section', section);

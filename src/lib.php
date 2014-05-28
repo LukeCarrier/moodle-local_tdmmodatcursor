@@ -30,10 +30,9 @@ global $PAGE;
 
 if (substr($PAGE->url->out_omit_querystring(), strlen($CFG->wwwroot)) === '/course/view.php') {
     $PAGE->requires->css('/local/tdmmodatcursor/style.css');
+    $PAGE->requires->string_for_js('addtype', 'local_tdmmodatcursor');
     $PAGE->requires->yui_module('moodle-local_tdmmodatcursor-modatcursor',
                                 'Y.M.local_tdmmodatcursor.modatcursor.init', array(array(
-        'addString' => get_string('addtype', 'local_tdmmodatcursor'),
-
         'modules' => array(
             'resource' => get_string('modulename', 'resource'),
             'url'      => get_string('modulename', 'url'),
