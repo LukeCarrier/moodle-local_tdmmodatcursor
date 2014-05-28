@@ -153,7 +153,6 @@ NS.showButtons = function(activityElement) {
         listItem = Y.Node.create('<li></li>');
 
         button.set('data-section', section);
-        button.set('data-below',   'blah');
         button.addClass(this.params.buttonClass);
 
         listItem.addClass(this.params.listItemClass);
