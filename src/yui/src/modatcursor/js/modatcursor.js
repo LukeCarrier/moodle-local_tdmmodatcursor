@@ -105,7 +105,7 @@ NS.init = function(params) {
     }
 
     if (this.params.course === null) {
-        throw "Course ID must be specified";
+        throw 'Course ID must be specified';
     }
 
     this.setupHandlers();
