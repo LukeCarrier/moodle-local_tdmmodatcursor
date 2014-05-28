@@ -40,15 +40,17 @@ class local_tdmmodatcursor_observer {
     public static function course_module_created(\core\event\course_module_created $event) {
         global $DB, $SESSION;
 
-        if (!isset($SESSION->local_tdmmodatcursor_addabove)) {
+        if (!isset($SESSION->local_tdmmodatcursor_addabove)
+                || !array_key_exists($event->courseid, $SESSION->local_tdmmodatcursor_addabove)) {
             return;
         }
 
         $cm = get_coursemodule_from_id($event->other['modulename'], $event->objectid, $event->courseid);
 
-        $beforemod = get_coursemodule_from_id('', $SESSION->local_tdmmodatcursor_addabove, $event->courseid);
+        $beforemod = get_coursemodule_from_id('', $SESSION->local_tdmmodatcursor_addabove[$event->courseid],
+                                              $event->courseid);
         $beforemod = $DB->get_record('course_modules', array(
-            'id' => $SESSION->local_tdmmodatcursor_addabove,
+            'id' => $SESSION->local_tdmmodatcursor_addabove[$event->courseid],
         ), '*', MUST_EXIST);
 
         $section = $DB->get_record('course_sections', array(
@@ -58,6 +60,6 @@ class local_tdmmodatcursor_observer {
 
         moveto_module($cm, $section, $beforemod);
 
-        unset($SESSION->local_tdmmodatcursor_addabove);
+        unset($SESSION->local_tdmmodatcursor_addabove[$event->courseid]);
     }
 }

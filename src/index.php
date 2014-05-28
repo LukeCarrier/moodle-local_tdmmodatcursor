@@ -31,7 +31,15 @@ $course   = required_param('course',   PARAM_INT);
 $section  = required_param('section',  PARAM_INT);
 $addabove = required_param('addabove', PARAM_INT);
 
-$SESSION->local_tdmmodatcursor_addabove = $addabove;
+if (!property_exists($SESSION, 'local_tdmmodatcursor_addabove')) {
+    $SESSION->local_tdmmodatcursor_addabove = array();
+}
+
+/* This array is utilised in the post-course module creation observer, after the usual creation process. This allows us
+ * to quietly move the module to the designated location after creation. The values are IDs of the CMs immediately below
+ * the desired location and are indexed by course ID. Indexing by course ID helps prevent weird behaviour when editing
+ * multiple courses in one browser session (cheers David Mudrák!). */
+$SESSION->local_tdmmodatcursor_addabove[$course] = $addabove;
 
 redirect(new moodle_url('/course/modedit.php', array(
     'add'     => $add,
