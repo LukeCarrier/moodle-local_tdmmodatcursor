@@ -90,7 +90,7 @@ NS.init = function(params) {
         activitySelector: '.activity',
         sectionSelector:  '.section',
         topElement:       '.course-content',
-        baseUrl:          '/local/tdmmodatcursor/index.php?add={type}&course={course}&section={section}&addabove={addabove}',
+        baseUrl:          '/local/tdmmodatcursor/index.php?add={mod}&course={course}&section={section}&addabove={addabove}',
         buttonClass:      'modatcursor-button',
         listItemClass:    'modatcursor-listitem',
         modules:          {}
@@ -138,17 +138,17 @@ NS.showButtons = function(activityElement) {
         addAbove        = activityElement.get('id').substr(7),
         section         = activityElement.ancestor('.section').ancestor('.section').get('id').substr(8);
 
-    Y.Object.each(this.params.modules, function(name, type) {
+    Y.Object.each(this.params.modules, function(name, mod) {
         var button, url, listItem;
 
         url = M.cfg.wwwroot + this.formatString(this.params.baseUrl, {
             addabove: addAbove,
             course:   this.params.course,
             section:  section,
-            type:     type
+            mod:     mod
         });
 
-        button   = Y.Node.create('<a href="' + url + '">' + M.util.get_string('addtype', 'local_tdmmodatcursor', name)
+        button   = Y.Node.create('<a href="' + url + '">' + M.util.get_string('addmod', 'local_tdmmodatcursor', name)
                                  + '</a>');
         listItem = Y.Node.create('<li></li>');
 

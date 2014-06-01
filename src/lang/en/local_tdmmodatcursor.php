@@ -30,4 +30,4 @@ defined('MOODLE_INTERNAL') || die;
 $string['pluginname'] = 'TDM: insert module at cursor';
 
 // Generic
-$string['addtype'] = 'Add {$a}';
+$string['addmod'] = 'Add {$a}';
