@@ -138,7 +138,7 @@ NS.showButtons = function(activityElement) {
         addAbove        = activityElement.get('id').substr(7),
         section         = activityElement.ancestor('.section').ancestor('.section').get('id').substr(8);
 
-    Y.Object.each(this.params.modules, function(name, mod) {
+    Y.Object.each(this.params.modules, function(mod) {
         var button, url, listItem;
 
         url = M.cfg.wwwroot + this.formatString(this.params.baseUrl, {
@@ -148,7 +148,8 @@ NS.showButtons = function(activityElement) {
             mod:     mod
         });
 
-        button   = Y.Node.create('<a href="' + url + '">' + M.util.get_string('addmod', 'local_tdmmodatcursor', name)
+        button   = Y.Node.create('<a href="' + url + '">' + M.util.get_string('addmod', 'local_tdmmodatcursor',
+                                                                              M.util.get_string('modulename', mod))
                                  + '</a>');
         listItem = Y.Node.create('<li></li>');
 

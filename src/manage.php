@@ -24,17 +24,23 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+require_once dirname(dirname(__DIR__)) . '/config.php';
+require_once "{$CFG->libdir}/adminlib.php";
 
-// Module metadata
-$string['pluginname'] = 'TDM: insert module at cursor';
+admin_externalpage_setup('local_tdmmodatcursor');
 
-// In course editing
-$string['addmod'] = 'Add {$a}';
+$mform = new local_tdmmodatcursor_manage_form();
+if ($mform->save_data()) {
+    $flash = $OUTPUT->notification(new lang_string('updatesuccessful', 'local_tdmmodatcursor'), 'notifysuccess');
+} elseif ($mform->is_cancelled()) {
+    $flash = $OUTPUT->notification(new lang_string('updatecancelled', 'local_tdmmodatcursor'), 'notifyproblem');
+} else {
+    $flash = '';
+}
 
-// Administration
-$string['quicklinks']           = 'Display modules in quick links';
-$string['managequicklinks']     = 'Manage quick links';
-$string['managequicklinksdesc'] = 'Activity modules checked below will appear in the quick links box when hovering over activities in course editing mode.';
-$string['updatecancelled']      = 'No changes have been made to the list of modules displayed in the quick access links';
-$string['updatesuccessful']     = 'The list of modules displayed in the quick access links has been updated';
+echo $OUTPUT->header(),
+     $flash,
+     $OUTPUT->heading(new lang_string('managequicklinks', 'local_tdmmodatcursor')),
+     $OUTPUT->box(new lang_string('managequicklinksdesc', 'local_tdmmodatcursor'));
+$mform->display();
+echo $OUTPUT->footer();

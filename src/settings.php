@@ -26,15 +26,6 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-// Module metadata
-$string['pluginname'] = 'TDM: insert module at cursor';
-
-// In course editing
-$string['addmod'] = 'Add {$a}';
-
-// Administration
-$string['quicklinks']           = 'Display modules in quick links';
-$string['managequicklinks']     = 'Manage quick links';
-$string['managequicklinksdesc'] = 'Activity modules checked below will appear in the quick links box when hovering over activities in course editing mode.';
-$string['updatecancelled']      = 'No changes have been made to the list of modules displayed in the quick access links';
-$string['updatesuccessful']     = 'The list of modules displayed in the quick access links has been updated';
+$ADMIN->add('modsettings', new admin_externalpage('local_tdmmodatcursor',
+                                                  new lang_string('managequicklinks', 'local_tdmmodatcursor'),
+                                                  new moodle_url('/local/tdmmodatcursor/manage.php')));
