@@ -34,8 +34,8 @@ if (substr($PAGE->url->out_omit_querystring(), strlen($CFG->wwwroot)) === '/cour
     $PAGE->requires->yui_module('moodle-local_tdmmodatcursor-modatcursor',
                                 'Y.M.local_tdmmodatcursor.modatcursor.init', array(array(
         'modules' => array(
-            'resource' => get_string('modulename', 'resource'),
-            'url'      => get_string('modulename', 'url'),
+            'resource' => new lang_string('modulename', 'resource'),
+            'url'      => new lang_string('modulename', 'url'),
         ),
 
         'course' => $PAGE->url->get_param('id'),
