@@ -34,9 +34,10 @@ defined('MOODLE_INTERNAL') || die;
 function local_tdmmodatcursor_requirements() {
     global $CFG, $PAGE;
 
-    if (substr($PAGE->url->out_omit_querystring(), strlen($CFG->wwwroot)) === '/course/view.php') {
+    if ($PAGE->has_set_url()
+            && substr($PAGE->url->out_omit_querystring(), strlen($CFG->wwwroot)) === '/course/view.php') {
         $quicklinks = local_tdmmodatcursor_config::get_quick_links();
-        
+
         foreach ($quicklinks as $mod) {
             $PAGE->requires->string_for_js('modulename', $mod);
         }
