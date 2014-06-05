@@ -47,8 +47,6 @@ class local_tdmmodatcursor_observer {
 
         $cm = get_coursemodule_from_id($event->other['modulename'], $event->objectid, $event->courseid);
 
-        $beforemod = get_coursemodule_from_id('', $SESSION->local_tdmmodatcursor_addabove[$event->courseid],
-                                              $event->courseid);
         $beforemod = $DB->get_record('course_modules', array(
             'id' => $SESSION->local_tdmmodatcursor_addabove[$event->courseid],
         ), '*', MUST_EXIST);
