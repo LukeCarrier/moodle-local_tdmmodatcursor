@@ -4,6 +4,7 @@ Add course module at cursor
 This plugin is an extension to the Moodle course editing functionality. It enables editing teachers to add activities
 and resources above the activity the cursor is hovering over.
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/LukeCarrier/moodle-local_tdmmodatcursor/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/LukeCarrier/moodle-local_tdmmodatcursor/?branch=master)
 
 License
 -------
