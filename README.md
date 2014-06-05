@@ -4,8 +4,6 @@ Add course module at cursor
 This plugin is an extension to the Moodle course editing functionality. It enables editing teachers to add activities
 and resources above the activity the cursor is hovering over.
 
-At the present time, these resources are hardcoded in ````lib.php```` -- only the File and URL resources can be added.
-This may change with the addition of an administration interface in the near future.
 
 License
 -------
